@@ -1,0 +1,73 @@
+{% extends 'saigym/AdminLogin.html'%}
+{% block dashboard %}
+<head>
+    <style>
+         tr, th{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<div class="body">
+
+    <table class="table table-striped" style="text-align: center; margin: auto;" border="1">
+        <thead>
+        <tr style="font-weight: bold;">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Reg No.</th>
+            <th scope="col">Batch TIming</th>
+            <th scope="col">January</th>
+            <th scope="col">Feb</th>
+            <th scope="col">March</th>
+            <th scope="col">April</th>
+            <th scope="col">May</th>
+            <th scope="col">Jun</th>
+            <th scope="col">July</th>
+            <th scope="col">August</th>
+            <th scope="col">Sep</th>
+            <th scope="col">Oct</th>
+            <th scope="col">Nov</th>
+            <th scope="col">Dec</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for disRes in Card %}
+            <tr>
+                <td>{{disRes.id}}</td>
+                <td>{{disRes.name}}</td>
+               <td>{{disRes.phone}}</td>
+               <td>{{disRes.regno}}</td>
+                <td>{{disRes.select}}</td>
+                <td>{{disRes.jan}}</td>
+                <td>{{disRes.feb}}</td>
+                <td>{{disRes.mar}}</td>
+                <td>{{disRes.apr}}</td>
+                <td>{{disRes.may}}</td>
+                <td>{{disRes.jun}}</td>
+                <td>{{disRes.july}}</td>
+                <td>{{disRes.aug}}</td>
+                <td>{{disRes.sept}}</td>
+                <td>{{disRes.octt}}</td>
+                <td>{{disRes.nov}}</td>
+                <td>{{disRes.dec}}</td>
+                <td><a href="/admin/saigym/card/" target="_blank">
+                    <button class="btn btn-primary"><i class="fas fa-user"></i> Update</button>
+                </a></td>
+            <td>
+                <form action="{% url 'deleteCard' disRes.id %}" method="post" class="d-lnline">
+                    {% csrf_token %}
+                    <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                </form>
+            </td>
+            </tr>
+        </tbody>
+            {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

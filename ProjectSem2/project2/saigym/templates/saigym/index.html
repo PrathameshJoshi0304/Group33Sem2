@@ -1,0 +1,383 @@
+{% extends 'saigym/base.html' %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block content %}
+{% load static %}
+
+    <!-- Header End -->
+    <!-- Hero Section Begin -->
+    <div class="hero-slider">
+        <div class="hero-items owl-carousel">
+             <div class="single-hero-item set-bg" data-setbg='{% static "saigym/images/homepageimg.jpeg" %}'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="hero-text">
+                                <h1>What is Sai Gym About?</h1>
+                                <p>We want to help you live a fit and healthy lifestyle! We do this by helping you find
+                                    the most
+                                    suitable equipments followed by exercises, keeping your budget, lifestyle
+                                    and fitness goals in mind. We stock a wide range of weight related equipments, with
+                                    strength equipment, functional training,
+                                    cross training and so much more. Our awesome team is always keen to help the members
+                                    regarding diet and everything so please
+                                    call us to discuss your needs. </p>
+                                <a href="about-us.html" class="primary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="single-hero-item set-bg" data-setbg='{% static "saigym/images/edited.png" %}' style="height: 780px;">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="hero-text" >
+                                <h1>A Word From Our Trainers!</h1>
+                                <p style="text-align: justify;"><b>Our trainers here at sai gym make everything possible for every gym Customer/Member.
+                                    <br/>Always eager to help and motivate until the person gets desired results.
+                                    <br/>Our trainers here believe and make the hustlers believe that every individual<br/> is
+                                    capable of having a great body and magnanimous physique!
+                               </b> </p>
+                                <a href="about-us.html" class="primary-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-hero-item set-bg" data-setbg='{% static "saigym/images/covid19img.png" %}'>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="hero-text">
+                                <h1 style="padding-top:90px;">Covid-19 Norms</h1>
+                                <p><ul style=" font-size:30px; list-style-type: square; color: #fff; padding-left: 20px;">
+                                    <li>Wear A Mask</li>
+                                    <li>Practice Social Distancing</li>
+                                    <li>Use Sanitizer Frequenty</li>
+                                    <li>Inform if Unwell</li>
+                                    <li>Temperature and Oxygen check</li>
+                                    </ul>
+                                </p>
+                                <!-- <a href="#" class="primary-btn">Read More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Section End -->
+    <!-- Class Booking Section Begin -->
+    <div class="booking-classes">
+        <div class="container-fluid">
+            <div class="booking-text">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="booking-heading set-bg" data-setbg=""><i style="margin-left: -180px;" class="fas fa-dumbbell fa-4x"></i>
+                                    <div class="booking-inner-text">
+                                        <h2>Book Your First Class</h2>
+                                        <p> And Experience the real world of fitness regime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="booking-form">
+                           <form method="post" action="/saigym/BookFirstCls/"> {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+
+                                        <input type="text" name="name" placeholder="Your Name">
+                                        <input type="text" name="phone" placeholder="Your Phone">
+                                    </div>
+                                       <div class="col-lg-6">
+                                                <input type="email" name="email" placeholder="E-mail Address">
+                                                <select name="batch" id="">
+                                                    <option value="" selected disabled>
+                                                        Select Your Batch
+                                                    </option>
+                                                    <option value="6-7 A.M.">
+                                                        Batch1 6-7 A.M.
+                                                    </option>
+                                                    <option value="7-8 A.M.">
+                                                        Batch2 7-8 A.M.
+                                                    </option>
+                                                    <option value="8-9 A.M.">
+                                                        Batch3 8-9 A.M.
+                                                    </option>
+                                                    <option value="9-10 A.M.">
+                                                        Batch4 9-10 A.M.
+                                                    </option>
+                                                    <option value="10-11 A.M.">
+                                                        Batch5 10-11 A.M.(Ladies Batch)
+                                                    </option>
+                                                    <option value="4-5 P.M.">
+                                                        Batch1 4-5 P.M.
+                                                    </option>
+                                                    <option value="5-6 P.M.">
+                                                        Batch2 5-6 P.M.
+                                                    </option>
+                                                    <option value="6-7 P.M.">
+                                                        Batch3 6-7 P.M.
+                                                    </option>
+                                                    <option value="7-8 P.M.">
+                                                        Batch4 7-8 P.M.
+                                                    </option>
+                                                    <option value="8-9 P.M.">
+                                                        Batch5 8-9 P.M.
+                                                    </option>
+                                                </select>
+<!--                                                <input type="submit" value="Submit" class="submit-btn">-->
+                                            </div>
+                                    <div class="col-lg-6">
+<!--                                        <input type="email" name="email" placeholder="E-mail Address">-->
+
+                                        <input type="submit" value="Submit" class="submit-btn">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Class Booking Section End -->
+    <!-- Services Section Begin -->
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 m-auto text-center">
+                    <div class="section-title">
+                        <h2>Join Our Gym Today</h2>
+                        <p> Sai gym is one the most popular gym in the Pune. We trained almost 100+ members to became a body builder and for men's physic.
+                        We have well knowledge Trainers to train you. We design various Workout schedule and diet for our members. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="flaticon-050-weightlifting"></i>
+                        <h4>Basics</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="flaticon-004-dumbbell"></i>
+                        <h4>Weight Training</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="flaticon-045-fitness"></i>
+                        <h4>WarmUp</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-services">
+                        <i class="flaticon-033-pump"></i>
+                        <h4>Cycling + Streching</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+    <!-- Client Says Section Begin -->
+    <section class="client-says set-bg" data-setbg='{% static "saigym/images/quoteimg2.png" %}'>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="client-text" style="height: 400px;">
+                        <h2> </h2>
+                        <h4></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Client Says Section End -->
+    <!-- Lifestyles Section Begin -->
+    <section class="lifestyle-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="lifestyle-text">
+                        <div class="section-title">
+                            <h2>Lifestyle & Diet</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                                ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel
+                                facilisis. </p>
+                            <button id="dietbtn" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"
+                                style="background-color: #ff8c05; border: none; border-radius: 0px;">
+                                Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lifestyle-img">
+                        <img src='{% static "saigym/images/diet.png" %}' height="400px" width="650px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Nutrition Tips</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src='{% static "saigym/images/dietimg1.png" %}'>
+                        <img src='{% static "saigym/images/dietimg2.png" %}'>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="https://www.gurumannnutrition.com" target="blank"
+                            style="text-decoration: none; color: white;"><button type="button" class="btn btn-primary"
+                                data-bs-dismiss="modal">Go</button></a>
+                        <h5>Go to the supplement store for More Supplement Details &#8593;</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Lifestyles Section End -->
+    <!-- Boxes Section Begin -->
+    <div class="boxes-section">
+        <div class="container-fluid">
+            <div class="boxes-img">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src='{% static "saigym/images/jay.png" %}' alt="">
+                                <div class="boxes-text">
+                                    <h1></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src='{% static "saigym/images/hardcore.png"%}' alt="">
+                                <div class="boxes-text">
+                                    <h1></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src='{% static "saigym/images/quoteimg.png" %}' alt="">
+                                <div class="boxes-text">
+                                    <h1></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Boxes Section End -->
+
+    <!-- Call To Section Begin -->
+    <section class="callto-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="callto-text">
+                        <h2>Come & Train With Us</h2>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                            JOIN NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--join now modal code-->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel">Check Our Timings</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src='{% static "saigym/images/saiposter.jpeg" %}' alt="" srcset="">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Join Us Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel2">Book Your First Class</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12">
+                            <form action="/saigym/contact/" method="post" class="contact-form" style="margin-left: 30px;">{% csrf_token %}
+                         <div class="row">
+                             <div class="col-lg-6">
+                                 <input type="text" name="name" placeholder="Your Name">
+                             </div>
+                             <div class="col-lg-6">
+                                 <input type="email" name="email" placeholder="Your E-mail">
+                             </div>
+                             <div class="col-lg-12">
+                                 <input type="text" name="subject" placeholder="Subject">
+                                 <textarea placeholder="Message" name="message"></textarea>
+                                 <input style="float: right;" type="submit" class="submit-btn contact-btn"
+                                     value="Send" />
+                             </div>
+                         </div>
+                     </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of join now -->
+    <!-- Call To Section End -->
+    <!-- Map Section Begin -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+        {% for msg in messages %}
+        swal('{{ msg }}');
+        {% endfor %}
+</script>
+{% endblock content %}
+    <!-- Map Section End -->
+    <!-- Footer Section Begin -->

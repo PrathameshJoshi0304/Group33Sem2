@@ -1,0 +1,458 @@
+{% extends 'saigym/base.html' %}
+{% block MemberLoginactive %} active {% endblock MemberLoginactive %}
+
+{% block content %}
+{% load static %}
+
+
+<script xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+        
+function check1(){
+var spanTag1=document.getElementById("s1");
+spanTag1.classList.add("checked");
+}
+
+function check2(){
+var spanTag2=document.getElementById("s2");
+var spanTag1=document.getElementById("s1");
+spanTag2.classList.add("checked");
+spanTag1.classList.add("checked");
+}
+function check3(){
+var spanTag2=document.getElementById("s2");
+var spanTag1=document.getElementById("s1");
+var spanTag3=document.getElementById("s3");
+spanTag3.classList.add("checked");
+spanTag2.classList.add("checked");
+spanTag1.classList.add("checked");
+}
+function check4(){
+var spanTag2=document.getElementById("s2");
+var spanTag1=document.getElementById("s1");
+var spanTag3=document.getElementById("s3");
+var spanTag4=document.getElementById("s4");
+spanTag4.classList.add("checked");
+spanTag3.classList.add("checked");
+spanTag2.classList.add("checked");
+spanTag1.classList.add("checked");
+}
+function check5(){
+var spanTag2=document.getElementById("s2");
+var spanTag1=document.getElementById("s1");
+var spanTag3=document.getElementById("s3");
+var spanTag4=document.getElementById("s4");
+var spanTag5=document.getElementById("s5");
+spanTag5.classList.add("checked");
+spanTag4.classList.add("checked");
+spanTag3.classList.add("checked");
+spanTag2.classList.add("checked");
+spanTag1.classList.add("checked");
+}
+    </script>
+<style>
+    .login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+	/* background:url(img/carouselimg.jpeg) no-repeat center; */
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:120%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:#ff8c05;
+	margin-top:0px;
+ 
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	/* border-radius:25px; */
+    color:#000;
+    background-color: white;
+	/* background:rgba(255,255,255,.1); */
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:white;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:black;
+    color: #fff;
+    cursor: pointer;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:white;
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk a{
+	text-align:center;
+    color: white;
+    
+}
+.checked {
+  color: orange;
+}
+a{
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+<img src='{% static "saigym/images/classcard7.png" %}' height="900px" width="100%" alt="" srcset="" style="filter: blur(5px);">
+    <div class="col-lg-8" style="margin-left: 250px; margin-top: 150px; padding-bottom: 100px;">
+        <!-- <form action="#" class="contact-form">
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="col-lg-6">
+                    <input type="email" placeholder="Your E-mail">
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" placeholder="Password">
+                     <textarea placeholder="Message"></textarea> -->
+                    <!-- <input type="submit" class="submit-btn contact-btn" value="Send">
+                </div>
+            </div>
+        </form>  -->
+
+        <div class="login-wrap" style="margin-top: -1000px;">
+            <div class="login-html">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <form method="post" action="/saigym/Login/">{% csrf_token %}
+                            <label for="user" class="label">Username</label>
+                            <input id="user" name="un" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="passw" name="pass" type="password" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input id="check" type="checkbox" class="check" checked>
+                            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign In">
+                        </div>
+
+                        <div class="hr"></div>
+                        <div class="foot-lnk">
+                            <a href="/saigym/forgotPassword/">Forgot Password?</a>
+                              </form>
+                            <button id="dietbtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #ff8c05; border: none; border-radius: 0px;">
+                                Read More</button>
+                        </div>
+                    </div> 
+                     <div class="sign-up-htm">
+                        <div class="group">
+                            <form method="post" action="/saigym/Register/">{% csrf_token %}
+                            <label for="user" class="label">Name</label>
+                            <input id="user" name="user" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="pass" type="password" name="password1" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Repeat Password</label>
+                            <input id="pass" type="password" name="password2" class="input" data-type="password">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Email Address</label>
+                            <input id="pass" type="text" name="email" class="input">
+                        </div>
+                         <div class="group">
+
+                            <label for="user" class="label">Security Question</label>
+                                 <select name="security">
+                                     <option value="Which is your birth place">Which is your birth place</option>
+                                     <option value="Your first nick name">Your first nick name</option>
+                                     <option value="Your favourite book name">Your favourite book name</option>
+                                 </select>
+                             </div>
+                               <div class="group">
+                                <input type="text" class="input" name="securityQuestion" placeholder="Enter Your answer here">
+
+                                 </div>
+
+                        <div class="group">
+                            <input type="submit" class="button" value="Sign Up">
+                        </div>
+                        <!-- <div class="hr"></div> -->
+                        <div class="foot-lnk">
+                            <label style="margin-top:-200px; color: white;" ><a for="tab-1" href="/saigym/memberLogin">Already Member?</a></label>
+                        </div>
+
+
+                </form>
+            </div>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Rating</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                    
+                            <div class="modal-body">
+                                <span class="fa fa-star " id="s1" onclick=check1();></span>
+                                <span class="fa fa-star " id="s2"onclick=check2()></span>
+                                <span class="fa fa-star" id="s3"onclick=check3()></span>
+                                <span class="fa fa-star " id="s4"onclick=check4()></span>
+                                <span class="fa fa-star" id="s5" onclick=check5()></span>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <a href="blog.html" target="blank"  style="text-decoration: none; color: white;"><button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Submit Feedback</button></a>
+                              <!-- <h5>Go to the supplement store for More Supplement Details &#8593;</h5> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- <div class="sign-in-htm">
+                    <div class="col-lg-8">
+                        <form action="#" class="contact-form">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" placeholder="Your E-mail">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="text" placeholder="Subject">
+                                    <textarea placeholder="Message"></textarea>
+                                    <div class="group">
+                                    <input type="submit" class="submit-btn contact-btn" value="Send">
+                                </div>
+                                <div class="foot-lnk">
+                                    <label for="tab-1">Already Member?</a>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="sign-up-htm">
+                        <div class="col-lg-8">
+                            <form action="#" class="contact-form">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="text" placeholder="Your Name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" placeholder="Your E-mail">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="text" placeholder="Subject">
+                                        <textarea placeholder="Message"></textarea>
+                                        <div class="group">
+                                        <input type="submit" class="submit-btn contact-btn" value="Send">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </form>
+                        </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section End -->
+    <!-- Call To Section Begin -->
+    <section class="callto-section" style="margin-top: 90px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="callto-text">
+                        <h2>Come & Train With Us</h2>
+                        <p>Body under construction, mind on a mission.</p>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                            JOIN NOW</a>                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--join now modal code-->
+     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+     tabindex="-1">
+     <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalToggleLabel">Check Our Timings</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <img src='{% static "saigym/images/saiposter.jpeg" %}' alt="" srcset="">
+             </div>
+             <div class="modal-footer">
+                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                     data-bs-dismiss="modal">Join Us Now</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+     tabindex="-1">
+     <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalToggleLabel2">Book Your First Class</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 <div class="col-lg-12">
+                     <form action="/saigym/contact/" method="post" class="contact-form" style="margin-left: 30px;">{% csrf_token %}
+                         <div class="row">
+                             <div class="col-lg-6">
+                                 <input type="text" name="name" placeholder="Your Name">
+                             </div>
+                             <div class="col-lg-6">
+                                 <input type="email" name="email" placeholder="Your E-mail">
+                             </div>
+                             <div class="col-lg-12">
+                                 <input type="text" name="subject" placeholder="Subject">
+                                 <textarea placeholder="Message" name="message"></textarea>
+                                 <input style="float: right;" type="submit" class="submit-btn contact-btn"
+                                     value="Send" />
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+             <div class="modal-footer">
+                 <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                     data-bs-dismiss="modal">Back</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--end of join now -->
+    <!-- Call To Section End -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+        {% for msg in messages %}
+        swal('{{ msg }}');
+        {% endfor %}
+</script>
+</body>
+{% endblock content %}

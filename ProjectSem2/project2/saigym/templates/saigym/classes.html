@@ -1,0 +1,803 @@
+{% extends 'saigym/base.html' %}
+{% block Classesactive %} active {% endblock Classesactive %}
+{% block content %}
+{% load static %}
+
+<head>
+
+    <style>
+    .pulse {
+  background: #ff8c05;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 2s infinite;
+}
+.pulse:hover {
+  animation: none;
+  font-size: large;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow:#ff8c05;
+  }
+  70% {
+      -webkit-box-shadow:#ff8c05;
+  }
+  100% {
+      -webkit-box-shadow: #ff8c05;
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 5 5 5 5 rgb(255,140,00);
+    box-shadow: 0 0 0 0 rgb(0,0,0);
+  }
+  70% {
+      -moz-box-shadow: 3 3 3 10px rgb(0,0,0);
+      box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+      -moz-box-shadow: 3 4 3 4 rgb(0,0,0);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+a{
+    text-decoration: none;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="hero-section set-bg" data-setbg='{% static "saigym/images/classestitleimg.jpeg" %}' style="height:390px;">
+    <a href="#timetable"><input type="submit" value="CHECK CLASSES &darr;" class="submit-btn pulse"
+                                style="margin-top:150px; margin-left: 500px;height:50px; width:300px;"></a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero-text">
+
+                    <h1>Classes</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero Section End -->
+<!-- Classes Section Begin -->
+<div class="classes-section spad">
+
+    <div class="container">
+
+
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="single-classes-item">
+
+                    <!--
+                                            <i class="flaticon-050-weightlifting"></i>
+                                            <h4>Crossfit</h4> -->
+                    <img src='{% static "saigym/images/classcard1.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-004-dumbbell"></i>
+                    <h4>Fitness</h4> -->
+                    <img src='{% static "saigym/images/classcard2.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-045-fitness"></i>
+                    <h4>Climbing</h4> -->
+                    <img src='{% static "saigym/images/classcard3.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-033-pump"></i>
+                    <h4>Cardio + Streching</h4> -->
+                    <img src='{% static "saigym/images/classcard4.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-040-weight"></i>
+                    <h4>Wheight Lifting</h4> -->
+                    <img src='{% static "saigym/images/classcard5.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-019-heart"></i>
+                    <h4>Yoga</h4> -->
+                    <img src='{% static "saigym/images/classcard6.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-038-vitamins"></i>
+                    <h4>Nutrition</h4> -->
+                    <img src='{% static "saigym/images/classcard7.png" %}' alt="" srcset="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-classes-item">
+                    <!-- <i class="flaticon-017-weightlifting-1"></i>
+                    <h4>TRX</h4> -->
+                    <img src='{% static "saigym/images/classcard8.png" %}' alt="" srcset="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Classes Section End -->
+<!-- Classes Time Section End -->
+<section id="timetable">
+    <div class="classes-time-section spad set-bg" data-setbg='{% static "saigym/images/classes-time-bg.jpg" %}' >
+        <div class="container">
+            <div class="row">
+                <div class="col order-1">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Monday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-2">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Tuesday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-3">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Wednesday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-4">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Thursday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-5">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Friday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-6">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Saturday
+                        </div>
+                        <div class="daily-work">
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 1</li>
+                                    <li>06:00 AM - 07:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 2</li>
+                                    <li>07:00 AM - 08:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 3</li>
+                                    <li>08:00 AM - 09:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 4</li>
+                                    <li>09:00 AM - 10:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 5(Ladies Batch)</li>
+                                    <li>10:00 AM - 11:00 AM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 6</li>
+                                    <li>05:00 PM - 06:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 7</li>
+                                    <li>06:00 PM - 07:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 8</li>
+                                    <li>07:00 PM - 08:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 9</li>
+                                    <li>08:00 PM - 09:00 PM</li>
+                                </ul>
+                            </div>
+                            <div class="work-hours bg-color">
+                                <ul>
+                                    <li>Batch 10(Experienced)</li>
+                                    <li>09:00 PM - 10:00 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col order-7">
+                    <div class="daily-routine">
+                        <div class="week-name">
+                            Sunday
+                        </div>
+                        <div class="daily-work last">
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                            <div class="work-hours"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Classes Time Section End -->
+    <!-- WOD Section Begin -->
+    <section class="wod-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Book Your First Class Now</h2>
+                    </div>
+                </div>
+                <div class="booking-classes">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="booking-heading set-bg" data-setbg="" style="height:500px;"><i
+                                                style="margin-left: -180px;" class="fas fa-dumbbell fa-4x"></i>
+                                            <div class="booking-inner-text">
+                                                <img src='{% static "saigym/images/bookclassformimg1.jpeg" %}' alt=""
+                                                     srcset="" style="margin-top: -100px; margin-left:-90px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="booking-form" style="height:500px;">
+                                    <form method="post" action="/saigym/BookFirstCls/">{% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <input type="text" name="name" placeholder="Your Name">
+                                                <input type="text" name="phone" placeholder="Your Phone">
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="email" name="email" placeholder="E-mail Address">
+                                                <select name="batch" id="">
+                                                    <option value="" selected disabled>
+                                                        Select Your Batch
+                                                    </option>
+                                                    <option value="6-7 A.M.">
+                                                        Batch1 6-7 A.M.
+                                                    </option>
+                                                    <option value="7-8 A.M.">
+                                                        Batch2 7-8 A.M.
+                                                    </option>
+                                                    <option value="8-9 A.M.">
+                                                        Batch3 8-9 A.M.
+                                                    </option>
+                                                    <option value="9-10 A.M.">
+                                                        Batch4 9-10 A.M.
+                                                    </option>
+                                                    <option value="10-11 A.M.">
+                                                        Batch5 10-11 A.M.(Ladies Batch)
+                                                    </option>
+                                                    <option value="4-5 P.M.">
+                                                        Batch1 4-5 P.M.
+                                                    </option>
+                                                    <option value="5-6 P.M.">
+                                                        Batch2 5-6 P.M.
+                                                    </option>
+                                                    <option value="6-7 P.M.">
+                                                        Batch3 6-7 P.M.
+                                                    </option>
+                                                    <option value="7-8 P.M.">
+                                                        Batch4 7-8 P.M.
+                                                    </option>
+                                                    <option value="8-9 P.M.">
+                                                        Batch5 8-9 P.M.
+                                                    </option>
+                                                </select>
+                                                <input type="submit" value="Submit" class="submit-btn">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 12, 2019</span>
+                        <h4>Atomic Crossfit</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 09, 2019</span>
+                        <h4>12 Days Challenge</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 07, 2019</span>
+                        <h4>Cashout</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 05, 2019</span>
+                        <h4>Atomic Crossfit </h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 10, 2019</span>
+                        <h4>Power Up</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 08, 2019</span>
+                        <h4>Overhead Squat</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 06, 2019</span>
+                        <h4>Snatch Complex</h4>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-wod-item">
+                        <span>February 04, 2019</span>
+                        <h4>Power Up</h4>
+                    </div> 
+                </div>-->
+            </div>
+        </div>
+    </section>
+    <!-- WOD Section End -->
+    <!-- Call To Section Begin -->
+    <section class="callto-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="callto-text">
+                        <h2>Come & Train With Us</h2>
+                        <br/>
+
+                        <p>Your body can stand almost anything, it's your mind that will have to continue</p>
+
+                        <p>You are worth it keep going!</p>
+                        <a data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                            JOIN NOW</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--join now modal code-->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+         tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Check Our Timings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src= '{% static "saigym/images/saiposter.jpeg" %}' alt="" srcset="">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Join Us Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+         tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">Book Your First Class</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <form action="/saigym/contact/" method="post" class="contact-form" style="margin-left: 30px;">{% csrf_token %}
+                         <div class="row">
+                             <div class="col-lg-6">
+                                 <input type="text" name="name" placeholder="Your Name">
+                             </div>
+                             <div class="col-lg-6">
+                                 <input type="email" name="email" placeholder="Your E-mail">
+                             </div>
+                             <div class="col-lg-12">
+                                 <input type="text" name="subject" placeholder="Subject">
+                                 <textarea placeholder="Message" name="message"></textarea>
+                                 <input style="float: right;" type="submit" class="submit-btn contact-btn"
+                                     value="Send" />
+                             </div>
+                         </div>
+                     </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+        {% for msg in messages %}
+        swal('{{ msg }}');
+        {% endfor %}
+</script>
+    {% endblock content %}

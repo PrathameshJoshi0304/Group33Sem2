@@ -1,0 +1,79 @@
+{% extends 'saigym/base.html' %}
+{% block contactactive %} active {% endblock contactactive %}
+
+{% block content %}
+{% load static %}
+<!-- Page Preloder -->
+
+<!-- Header End -->
+<!-- Hero Section Begin -->
+<div class="hero-section set-bg" data-setbg='{% static "saigym/images/contact-bg.jpg" %}'>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero-text">
+                    <h1>Contact</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<!-- Hero Section End -->
+<!-- Contact Section Begin -->
+<section class="contact-section spad">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="contact-text">
+                    <div class="section-title">
+                        <h2>Get in touch</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                            viverra maecenas.</p>
+                    </div>
+                    <div class="contact-widget">
+                        <ul>
+                            <li>52, Lane Number 3, <br/> Bhagyoday Colony,<br/>Hingne Budrukh,</li>
+                            <li> Karve Nagar, Pune,<br/> Maharashtra<br/> 411052,<br/>prathameshjoshi39@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <form action="/saigym/contact/" class="contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="text" name="name" value="{{User.first_name}}" placeholder="Your Name">
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="email" name="email" placeholder="Your E-mail">
+                        </div>
+                        <div class="col-lg-12">
+                            <input type="text" name="subject" placeholder="Subject">
+                            <textarea name="message" placeholder="Message"></textarea>
+                            <input type="submit" class="submit-btn contact-btn" value="Send">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+        {% for msg in messages %}
+        swal('{{ msg }}');
+        {% endfor %}
+</script>
+
+<!-- Contact Section End -->
+<!-- Map Section Begin -->
+
+{% endblock content %}

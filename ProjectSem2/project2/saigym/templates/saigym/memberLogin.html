@@ -1,0 +1,161 @@
+<html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Member Dashboard</title>
+    <link rel="stylesheet" href='{% static "saigym/css/style1.css" type="text/css"> %}'>
+     <link rel="stylesheet" href='{% static "saigym/css/font-awesome.min.css" %}' type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    dateTime = function () {
+        var now = new Date();
+        var hours = now.getHours();
+        var greet;
+
+        if (hours < 12) {
+            greet = "Good Morning,";
+        } else if (hours < 16) {
+            greet = "Good Afternoon,";
+        } else {
+            greet = "Good Evening,";
+        }
+
+        $('#time').html(greet);
+    };
+
+    menuDropdowns = function () {
+        $('.dropdown').each(function () {
+            const links = $(this).find('.links');
+            const h = links.height();
+
+            links.css('height', '0');
+
+            $(this).click(function () {
+                if ($(this).toggleClass('js-opened').hasClass('js-opened')) {
+                    links.css('height', h);
+                } else {
+                    links.css('height', 0);
+                };
+
+            });
+        });
+    };
+
+    $(document).ready(function () {
+
+        menuDropdowns();
+        dateTime();
+
+        $('.js-toggle-menu').click(function () {
+            $('.menu').toggleClass('active');
+        });
+    });
+    
+    $(document).ready(function() {
+	$(".btni").click(function() {
+		$("#test1").show();
+	});
+});
+</script>
+<style>
+    #test1 {
+    display:none;
+    };
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="heading">`
+            <p>Sai Gym</p>
+            <div class="menu-icon js-toggle-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="wrap">
+            <a href="/saigym/memberDetails/{{ user.id }}">Dashboard</a>
+            <a class="btni" href="/saigym/changePassMember">Change Password</a>
+
+            <p class="title"></p> 
+
+            <a href="/saigym/showDietWorkout/">View Diet and Workout</a>
+            <!-- <a href="/saigym/memberCardAdmin">Create Gym Card</a> -->
+         <!-- <a href="">View Workout</a>  -->
+
+            <!-- <div class="dropdown">
+                <p>Dropdown</p>
+                <div class="links">
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                    <a href="">Dropdown Item</a>
+                </div>
+            </div> -->
+
+            <!-- <a href="">Delete Member</a> -->
+
+            <div class="dropdown">
+                <p>Yearly Member Card</p>
+                <div class="links">
+                    <a href="/saigym/memberCard/">Check Gym Card</a>
+                    <!-- <a href="">Manage Gym Card</a> -->
+                </div>
+            </div>
+
+            <p class="title"></p>
+
+            <!-- <div class="dropdown"> -->
+                <!-- <p></p> -->
+                 <div class="links"> 
+                    <a href="/saigym/progress">Check My Progress</a>
+                    <!-- <a href="">Update/Delete Trainers</a> -->
+                </div>
+            <!-- </div>  -->
+            <!-- <div class="dropdown">
+                <p>Yearly Member Card</p>
+                <div class="links">
+                    <a href="">Create Gym Card</a>
+                    <a href="">Manage Gym Card</a>
+                </div>
+            </div>        -->
+                <a href="/saigym/adminLogout">Log Out</a>
+        </div>
+    </div>
+
+    <div class="content" style="overflow: scroll;">
+        <div class="header">
+            <p><span id="time"></span> Hello  {{ user.username }}   </p>
+            <a href="/saigym/adminLogout"><i class="fas fa-user"> Logout</i></a><br>
+           
+        </div>
+      <div>
+        {% block member %}
+
+        {% endblock %}
+      </div>
+        <div class="body">
+
+            <iframe src="http://127.0.0.1:5500/changePassword.html" id="test1" frameborder="0"></iframe>
+        </div>
+    </div>
+
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        swal('{{ msg }}');
+        {% endfor %}
+    </script>
+</body>
+
+</html>

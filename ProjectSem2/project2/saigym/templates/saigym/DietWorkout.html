@@ -1,0 +1,76 @@
+{% extends 'saigym/trainerDashboard.html'%}
+{% load static %}
+{% block trainer %}
+<html>
+    <head><meta charset="UTF-8">
+        <meta name="description" content="Yoga Studio Template">
+        <meta name="keywords" content="Yoga, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+   <link rel="stylesheet" href='{% static "saigym/css/bootstrap.min.css" %}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/font-awesome.min.css" %}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/flaticon.css" type="text/css"> %}'>
+    <link rel="stylesheet" href='{% static "saigym/css/owl.carousel.min.css" type="text/css"> %}'>
+    <link rel="stylesheet" href='{% static "saigym/css/magnific-popup.css" type="text/css"> %}'>
+    <link rel="stylesheet" href='{% static "saigym/css/slicknav.min.css" type="text/css"> %}'>
+    <link rel="stylesheet" href='{% static "saigym/css/style.css" type="text/css"> %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>DietWorkout</title>
+</head>
+
+    <body>
+
+        <section class="contact-section spad">
+            <div class="container">
+<div class="row">
+
+        <div class="col-md-6  p-3 bg-light my-5 shadow shadow-lg mx-auto">
+            <h4 style="padding: 10px; text-align:center;" class="alert alert-primary">Workout And Diet</h4>
+            <form action="/saigym/uploadDietWorkout/" method="POST" class="contact-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <!-- <input type="text" placeholder="Member Name" name="name"> -->
+                        <select class="form-select" name="name" id="">
+                            <option disabled selected>Select the user</option>
+                            {% for st in user %}
+                               <option value="{{ st.username }}">{{ st.username }}</option>
+                         x  {% endfor %}
+                            </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="email" placeholder="Member E-mail Id" name="email"> 
+                    </div>
+                    <div class="col-lg-12">
+                        <textarea placeholder="Upload Diet" name="upDiet"></textarea>
+                        <textarea placeholder="Upload Workout" name="upWork"></textarea>
+
+                        <select name="select">
+                            <option  value="" selected disabled >
+                                Select Day
+                            </option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+
+                        </select>
+                        <input type="submit" class="submit-btn contact-btn" value="Send">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+    </body>
+</html>
+{% endblock %}

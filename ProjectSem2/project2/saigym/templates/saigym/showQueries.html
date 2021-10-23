@@ -1,0 +1,48 @@
+{% extends "saigym/AdminLogin.html" %}
+{% block dashboard %}
+<head>
+    <style>
+        .table td,th {
+   text-align: center;
+}
+    </style>
+</head>
+<h3 class="alert alert-danger" style="text-align: center; width: 100%;">Dashboard &gt Show Queries</h3>
+
+<div class="body">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Member Name</th>
+                        <th scope="col">Queries</th>
+                        <!-- <th scope="col">Email</th> -->
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disRes in Contact %}
+                    <tr>
+                        <td>{{disRes.id}}</td>
+                        <td>{{disRes.name}}</td>
+
+                        <td>{{disRes.message}}</td>
+                        <!-- <td>{{disRes.Email}}</td> -->
+
+
+<!--                        <td><a href="/saigym/edit/{{ disRes.id }}"><button class="btn btn-primary">Edit</button></a></td>-->
+                        <td>
+                       <form action="{% url 'sendEmail'%}" method="post" class="d-lnline">
+                           {% csrf_token %}
+                           <!-- <button class="btn btn-primary"><i class="fas fa-user"></i> Email</button> -->
+                        </form>
+                       </td>
+                    </tr>
+
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}

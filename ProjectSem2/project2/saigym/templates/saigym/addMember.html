@@ -1,0 +1,60 @@
+{% extends "saigym/AdminLogin.html" %}
+{% block dashboard %}
+<head>
+    <style>
+        .table td,
+        th,
+        h4 {
+            text-align: center;
+
+        }
+
+        .alert-success {
+            margin-left: 580px;
+            margin-top: 10px;
+        }
+
+</style>
+</head>
+<h3 class="alert alert-danger" style="text-align: center; width: 100%;">Dashboard &gt Add Trainer</h3>
+<div class="body">
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+<!--            <th scope="col">Last Name</th>-->
+            <th scope="col">User Name</th>
+            <th scope="col">Email</th>
+
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for disRes in User %}
+        <tr>
+            <td>{{disRes.id}}</td>
+            <td>{{disRes.first_name}} {{disRes.last_name}}</td>
+<!--            <td></td>-->
+            <td>{{disRes.username}}</td>
+            <td>{{disRes.email}}</td>
+
+            <td><a href="{% url 'addMembers' disRes.id%}">
+                <button class="btn btn-primary"><i class="fas fa-plus"></i> Add</button>
+            </a></td>
+            <td>
+                <form action="{% url 'delete' disRes.id %}" method="post" class="d-lnline">
+                    {% csrf_token %}
+                    <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

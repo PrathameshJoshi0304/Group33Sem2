@@ -1,0 +1,300 @@
+{% extends 'saigym/memberLogin.html'%}
+{% block member%}
+<html>
+
+<head>
+  <title>My Progress</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      list-style: none;
+      overflow: hidden;
+      font-family: 'Lato', Calibri, Arial, sans-serif;
+    }
+
+    .progressDiv {
+      width: 300%;
+      background: #ff8c05;
+      height: 325px;
+      border: 1px solid #ccc;
+      position: relative;
+      left: 7%;
+      top: 100px;
+      display: inline-block;
+      border-radius: 2px;
+      box-shadow: 0px 1px 1px 1px #ccc;
+    }
+
+    .statChartHolder {
+      width: 35%;
+      height: 90%;
+      position: relative;
+      border-right: 1px solid #ccc;
+      top: 15px;
+      display: inline-block;
+    }
+
+    .statRightHolder {
+      display: inline-block;
+      height: 90%;
+      width: 64%;
+      position: relative;
+      top: -32px;
+      margin: 0;
+    }
+
+    .statRightHolder ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .statRightHolder li {
+      border-bottom: 1px solid #ccc;
+      height: 85px;
+      width: 95%;
+      position: relative;
+      top: -25px;
+    }
+
+    .statRightHolder h3 {
+      display: inline-block;
+      margin-right: 15px;
+      color: white;
+      font-weight: bolder;
+      font-size: 38px;
+    }
+
+    .statRightHolder span {
+      display: inline-block;
+      color: black;
+      font-size: 21px;
+      font-weight: bolder;
+    }
+
+    .statsLeft {
+      list-style: none;
+      display: inline-block;
+      width: 45%;
+    }
+
+    .statsLeft li {
+      width: 100%;
+      height: 14px;
+      border: none;
+      top: 5px;
+      margin-bottom: 25px;
+    }
+
+    .statsLeft h3 {
+      font-size: 17px;
+      display: inline-block;
+    }
+
+    .statsLeft span {
+      font-size: 20px;
+      display: inline-block;
+    }
+
+    .statsRight {
+      width: 45%;
+      display: inline-block;
+      position: absolute;
+    }
+
+    .statsRight li {
+      width: 100%;
+      height: 14px;
+      border: none;
+      top: 5px;
+      margin-bottom: 25px;
+    }
+
+    .statsRight h3 {
+      font-size: 17px;
+      display: inline-block;
+    }
+
+    .statsRight span {
+      font-size: 17px;
+      display: inline-block;
+    }
+
+    /* Pie Chart */
+    .progress-pie-chart {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #E5E5E5;
+      position: relative;
+    }
+
+    .progress-pie-chart.gt-50 {
+      background-color: black;
+    }
+
+    .ppc-progress {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      left: calc(50% - 100px);
+      top: calc(50% - 100px);
+      width: 200px;
+      height: 200px;
+      clip: rect(0, 200px, 200px, 100px);
+    }
+
+    .ppc-progress .ppc-progress-fill {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      left: calc(50% - 100px);
+      top: calc(50% - 100px);
+      width: 200px;
+      height: 200px;
+      clip: rect(0, 100px, 200px, 0);
+      background: black;
+      transform: rotate(60deg);
+    }
+
+    .gt-50 .ppc-progress {
+      clip: rect(0, 100px, 200px, 0);
+    }
+
+    .gt-50 .ppc-progress .ppc-progress-fill {
+      clip: rect(0, 200px, 200px, 100px);
+      background: #E5E5E5;
+    }
+
+    .ppc-percents {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      left: calc(50% - 173.91304px/2);
+      top: calc(50% - 173.91304px/2);
+      width: 173.91304px;
+      height: 173.91304px;
+      background: #fff;
+      text-align: center;
+      display: table;
+    }
+
+    .ppc-percents span {
+      display: block;
+      font-size: 2.6em;
+      font-weight: bold;
+      color: black;
+    }
+
+    .pcc-percents-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .progress-pie-chart {
+      margin: 50px auto 0;
+    }
+
+    @media(max-width: 720px) {
+
+      .progressDiv {
+        height: auto;
+      }
+
+      .statChartHolder {
+        width: 100%;
+        display: block;
+        padding-bottom: 65px;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+
+      }
+
+      .statRightHolder {
+        display: block;
+        height: auto;
+        width: 100%;
+        position: relative;
+        padding-top: 65px;
+        margin-bottom: 100px;
+      }
+
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  
+  <div class="progressDiv">
+    <div class="statChartHolder">
+      <div class="progress-pie-chart" data-percent="67">
+        <!--Pie Chart -->
+        <div class="ppc-progress">
+          <div class="ppc-progress-fill"></div>
+        </div>
+        <div class="ppc-percents">
+          <div class="pcc-percents-wrapper">
+            <span>%</span>
+          </div>
+        </div>
+      </div>
+      <!--End Chart -->
+    </div>
+    <div class="statRightHolder">
+      <ul>
+        <li>
+          <h3 class="blue">12</h3> <span>Weekly Workouts</span>
+        </li>
+        <li>
+          <h3 class="purple">10</h3> <span>Achieved</span>
+        </li>
+      </ul>
+
+      <ul class="statsLeft">
+        <li>
+          <h3 class="yellow">2%</h3> <span>Fat Loss</span>
+        </li>
+        <li>
+          <h3 class="red">17%</h3> <span>Calories Burnt</span>
+        </li>
+      </ul>
+      <ul class="statsRight">
+        <li>
+          <h3>1.2%</h3> <span>Workout Left</span>
+        </li>
+        <li>
+          <h3>33%</h3> <span>Closer to your Goals</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <script>
+    $(function () {
+      var $ppc = $('.progress-pie-chart'),
+        percent = parseInt($ppc.data('percent')),
+        deg = 360 * percent / 100;
+      if (percent > 50) {
+        $ppc.addClass('gt-50');
+      }
+      $('.ppc-progress-fill').css('transform', 'rotate(' + deg + 'deg)');
+      $('.ppc-percents span').html(percent + '%');
+    });
+
+  </script>
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "saigym/trainerDashboard.html" %}
+<!--{% include "saigym/memberLogin.html" %}-->
+{% block trainer %}
+ <html>
+{% load static %}
+    <head><meta charset="UTF-8">
+        <meta name="description" content="Yoga Studio Template">
+        <meta name="keywords" content="Yoga, unica, creative, html">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+     <link rel="stylesheet" href='{% static "saigym/css/bootstrap.min.css" %}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/font-awesome.min.css" %}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/flaticon.css"%}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/owl.carousel.min.css"%}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/magnific-popup.css"%}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/slicknav.min.css"%}' type="text/css">
+    <link rel="stylesheet" href='{% static "saigym/css/style.css"%}' type="text/css">
+     <link rel="stylesheet" href='{% static "saigym/css/memberLogin.css" %}' type="text/css">
+        <script src='{% static "saigym/js/bootstrap.min.js" %}'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Change Password</title>
+</head>
+    <body>
+
+        <section class="contact-section spad">
+            <div class="container">
+<div class="row">
+        <div class="col-md-6  p-3 bg-light my-5 shadow shadow-lg mx-auto" style="" align="center" >
+            <form action="/saigym/changePassMember/" method="post" class="contact-form" >{% csrf_token %}
+                <h3 class="alert alert-primary">Get Your Password</h3>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input type="password" placeholder="Current Password"  name="curpas" id="cpwd">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="password" placeholder="New Password" maxlength="18" name="npas" id="pas" onkeyup="check_password()">
+                    </div>
+                    <div class="col-lg-12">
+                        <input type="password" placeholder="Confirm Password" maxlength="18" name="cnpas" id="cpas" onkeyup="check_password()">
+<!--                        <select>-->
+<!--                            <option value="" selected disabled>-->
+<!--                                Select Your Role-->
+<!--                            </option>-->
+<!--                            <option value="Admin">Admin</option>-->
+<!--                            <option value="Trainer">Trainer</option>-->
+<!--                            <option value="Member">Member</option>-->
+<!--                        </select>-->
+                        <input type="submit" class="submit-btn contact-btn" value="change password" id="sbbtn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+    function check_password()
+    {
+        let pas = $("#pas").val();
+        let conpas = $("#cpas").val();
+        if(pas == conpas){
+             $("#pas").css("border", "1px solid green");
+            $("#cpas").css("border", "1px solid green");
+            $("#sbbtn").removeAttr("disabled");
+        }
+        else{
+            $("#pas").css("border", "1px solid red");
+            $("#cpas").css("border", "1px solid red");
+            $("#sbbtn").attr("disabled", "disabled");
+        }
+    }
+</script>
+    </body>
+</html>
+{% endblock %}
